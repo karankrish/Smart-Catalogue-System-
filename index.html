@@ -183,7 +183,61 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.5/vue.min.js"></script>
  <script src=https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/vue-router/0.7.11/vue-router.min.js></script>
+<script>
+Vue.use(VueRouter);
 
+var HomeComponent = Vue.extend({
+  template: "#home-component-template"
+});
+
+var BillImagesComponent = Vue.extend({
+  template: "#billimages-component-template"
+});
+
+var ServicesComponent = Vue.extend({
+  template: "#services-component-template"
+});
+
+var ContactComponent = Vue.extend({
+  template: "#contact-component-template"
+});
+
+var router = new VueRouter();
+
+router.map({
+  '/home': {
+    component: HomeComponent
+  },
+  '/billimages': {
+    component: BillImagesComponent
+  },
+  '/services': {
+    component: ServicesComponent
+  },
+  '/contact': {
+    component: ContactComponent
+  }
+});
+
+var App = Vue.extend({});
+var App1 = new Vue({
+  el: '#app1',
+  data() {
+    return {
+      url: null,
+    }
+  },
+  methods: {
+    onFileChange(e) {
+      console.log('hello')
+      const file = e.target.files[0];
+      this.url = URL.createObjectURL(file);
+    }
+  }
+})
+router.start(App, "#app");
+
+  </script>
 </body>
 
 </html>

@@ -1,0 +1,12 @@
+FROM ubuntu:18.04
+
+RUN apt-get update 
+RUN apt-get install -y git python3-pip python3-setuptools curl  
+RUN pip3 install -U pipenv
+RUN apt-get update && apt-get install -y tesseract-ocr-all 
+RUN git clone https://github.com/karankrish/Smart-Catalogue-System-.git
+WORKDIR Smart-Catalogue-System-/
+RUN git checkout feature/Bill_Parser
+RUN git pull
+RUN make install
+CMD ["make", "run"]

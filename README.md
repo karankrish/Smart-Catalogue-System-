@@ -6,6 +6,7 @@ A product for preparing a false positive dynamic catalogue for stores by analysi
 For running parese 
 
 sudo docker build -f DockerParser -t parse .
+
 sudo docker run --rm -d parser
 
 
@@ -13,4 +14,5 @@ sudo docker run --rm -d parser
 For running UI
 
 sudo docker build -f DockerUI -t ui .
+
 sudo docker run --rm -d ui

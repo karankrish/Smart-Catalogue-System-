@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hackathon: Dunzo 2019</title>
+</head>
+
+<body> 
+  
+  <div id="app1">
+        <input type="file" @change="onFileChange" />
+        <div id="preview">
+          <img v-if="url" :src="url" />
+        </div>
+      </div>
+  <div id="app">
+    
+    <header>
+      <nav>
+        <a v-link="{ path: '/home' }">Home</a>
+        <a v-link="{ path: '/billimages' }">Bill Images</a>
+        <a v-link="{ path: '/services' }">Services</a>
+        <a v-link="{ path: '/contact' }">Contact Us</a>
+      </nav>
+    </header>
+
+    <div class="container">
+      <router-view transition transition-mode="out-in"></router-view>
+    </div>
+
+  <template id="home-component-template">
+    <div>
+      <h1>This is the Home Section!</h1>
+    </div>
+  </template>
+
+  <template id="billimages-component-template">
+    
+    <div class="billimages">
+       <div id="app1">
+        <input type="file" @change="onFileChange" />
+        <div id="preview">
+          <img v-if="url" :src="url" />
+        </div>
+      </div>
+      <h1>This is the Bill Images Section!</h1>
+      <!-- Read about "transition mode" here: https://vuejs.org/guide/components.html#transition-mode -->
+     
+      <router-view transition transition-mode="out-in"> </router-view>
+    </div>
+  </template>
+  
+  <!--<template id="subroute-component-template">
+    <div class="subroute" :style="{ background: color }">
+      <p>Hey there. You've reached Work subRoute {{ number }}</p>
+    </div>
+  </template>-->
+    
+   <template id="services-component-template">
+    <div>
+      <h1>This is the Service Section!</h1>
+    </div>
+  </template>
+
+  <template id="contact-component-template">
+    <div>
+      <h1>This is the Contact Section!</h1>
+    </div>
+  </template>
+
+</div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.5/vue.min.js"></script>
+ <script src=https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/vue-router/0.7.11/vue-router.min.js></script>
+
+</body>
+
+</html>
